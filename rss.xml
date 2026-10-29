@@ -5,7 +5,46 @@
     <link>/index.html</link>
     <description>学习笔记、项目记录，以及折腾各种工具的过程。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>两数之和</title>
+      <link>/blog/two-sum.html</link>
+      <guid isPermaLink="true">/blog/two-sum.html</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>两数之和</description>
+      <content:encoded><![CDATA[<p>题目链接：<a href="https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&amp;envId=top-100-liked">1. 两数之和 - 力扣（LeetCode）</a></p>
+<p>很简单一道题目，O(n^2)的做法很简单就是两层for循环扫一下。
+O(nlogn)的做法也很简单就是开个map记录一下，每次都是找有没有配对的数，可以做到nlogn</p>
+<p>代码如下：</p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+using namespace std;
+
+class Solution {
+
+public:
+
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        unordered_map&lt;int, int&gt; mp;
+        for(int i = 0; i &lt; nums.size(); i++){
+            int y = target - nums[i];
+
+            if(mp.find(y) != mp.end()){
+                return {mp[y], i};
+            }
+
+            mp[nums[i]] = i;
+
+        }
+
+        return {};
+
+    }
+
+};
+</code></pre>
+]]></content:encoded>
+    </item>
     <item>
       <title>开始写博客</title>
       <link>/blog/hello.html</link>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>两数之和 · Song4u</title>
+  <meta name="description" content="两数之和">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="alternate" type="application/rss+xml" title="Song4u 的博客" href="../rss.xml">
+  <link rel="canonical" href="/blog/two-sum.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="两数之和 · Song4u">
+  <meta property="og:description" content="两数之和">
+  <meta property="og:url" content="/blog/two-sum.html">
+  <meta name="twitter:card" content="summary">
+</head>
+<body data-root="../">
+  <header class="site-header" id="masthead">
+    <div class="header-branding">
+      <div class="container">
+        <p class="site-title"><a href="../index.html">Song4u</a></p>
+        <p class="site-description">学习笔记、项目记录，以及折腾各种工具的过程。</p>
+      </div>
+    </div>
+
+    <div class="header-nav">
+      <div class="container header-nav__inner">
+        <nav class="mainnav" aria-label="主导航">
+          <ul>
+            <li><a href="../index.html" aria-current="page">首页</a></li>
+            <li><a href="../archive.html">归档</a></li>
+            <li><a href="../tags.html">标签</a></li>
+            <li><a href="../about.html">关于</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+          <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+          <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sticky-header" id="stickyHeader">
+    <div class="progress"><span class="progress__bar" id="progressBar"></span></div>
+    <div class="container sticky-header__inner">
+      <a class="sticky-header__brand" href="../index.html">Song4u</a>
+      <nav class="mainnav mainnav--compact" aria-label="吸顶导航">
+        <ul>
+          <li><a href="../index.html" aria-current="page">首页</a></li>
+          <li><a href="../archive.html">归档</a></li>
+          <li><a href="../tags.html">标签</a></li>
+          <li><a href="../about.html">关于</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+        <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+        <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-content" id="primary">
+    <div class="container">
+      <article class="post">
+        <header class="post-header">
+          <p><a class="back-link" href="../index.html">← 返回首页</a></p>
+          <h1 class="entry-title">两数之和</h1>
+          <div class="entry-meta">
+            <span class="posted-on"><time datetime="2026-10-29">2026年10月29日</time></span>
+            <span class="dot">·</span>
+            <span>约 1 分钟</span>
+          </div>
+                  <ul class="tags tags--sm entry-tags">
+          <li><a href="../tags/Hot100.html" style="color:inherit">Hot100</a></li>
+          <li><a href="../tags/%E7%AE%97%E6%B3%95.html" style="color:inherit">算法</a></li>
+        </ul>
+        </header>
+        <div class="prose">
+<p>题目链接：<a href="https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&amp;envId=top-100-liked">1. 两数之和 - 力扣（LeetCode）</a></p>
+<p>很简单一道题目，O(n^2)的做法很简单就是两层for循环扫一下。
+O(nlogn)的做法也很简单就是开个map记录一下，每次都是找有没有配对的数，可以做到nlogn</p>
+<p>代码如下：</p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+using namespace std;
+
+class Solution {
+
+public:
+
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        unordered_map&lt;int, int&gt; mp;
+        for(int i = 0; i &lt; nums.size(); i++){
+            int y = target - nums[i];
+
+            if(mp.find(y) != mp.end()){
+                return {mp[y], i};
+            }
+
+            mp[nums[i]] = i;
+
+        }
+
+        return {};
+
+    }
+
+};
+</code></pre>
+        </div>
+      <nav class="postnav">
+        <a href="hello.html"><span>← 上一篇</span>开始写博客</a>
+        <span></span>
+      </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="colophon">
+    <div class="container site-footer__inner">
+      <div class="site-info">
+        Copyright © <span class="js-year">2026</span>
+        <a href="../index.html">Song4u</a>. 保留所有权利
+      </div>
+      <div class="footer-links">
+        <a href="../rss.xml">RSS</a>
+        <a href="../about.html">关于</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端菜单">
+    <div class="mobile-nav__head">
+      <span class="mobile-nav__title">导航</span>
+      <button class="icon-btn js-close" type="button" aria-label="关闭菜单">✕</button>
+    </div>
+    <ul>
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="../archive.html">归档</a></li>
+      <li><a href="../tags.html">标签</a></li>
+      <li><a href="../about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="overlay-backdrop" id="backdrop"></div>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="站内搜索">
+    <button class="search-close js-close" type="button" aria-label="关闭搜索">✕</button>
+    <div class="container">
+      <label class="screen-reader-text" for="searchInput">搜索文章</label>
+      <input class="search-field" id="searchInput" type="search" placeholder="搜索文章…" autocomplete="off">
+      <p class="search-hint">输入关键词即时筛选标题、摘要和标签，按 ESC 关闭。</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" type="button">返回顶部 ↑</button>
+
+  <script src="../search-index.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

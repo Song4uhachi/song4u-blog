@@ -1,6 +1,16 @@
 /* 由 npm run blog 自动生成，不要手改 */
 window.SEARCH_INDEX = [
   {
+    "title": "两数之和",
+    "url": "blog/two-sum.html",
+    "date": "2026-10-29",
+    "tags": [
+      "Hot100",
+      "算法"
+    ],
+    "summary": "两数之和"
+  },
+  {
     "title": "开始写博客",
     "url": "blog/hello.html",
     "date": "2026-10-07",
