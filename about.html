@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于 · Song4u</title>
+  <meta name="description" content="关于 Song4u：个人介绍与联系方式。">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="alternate" type="application/rss+xml" title="Song4u 的博客" href="rss.xml">
+</head>
+<body data-root="">
+
+  <!-- ==========================================================
+       下面的头部和页脚由 `npm run blog` 自动填充，
+       不要手改这两个标记之间的内容。
+       要改导航或站点标题，请改 tools/build-blog.mjs 顶部的配置。
+       ========================================================== -->
+
+  <!-- SITE_HEADER:START -->
+
+<header class="site-header" id="masthead">
+    <div class="header-branding">
+      <div class="container">
+        <p class="site-title"><a href="index.html">Song4u</a></p>
+        <p class="site-description">学习笔记、项目记录，以及折腾各种工具的过程。</p>
+      </div>
+    </div>
+
+    <div class="header-nav">
+      <div class="container header-nav__inner">
+        <nav class="mainnav" aria-label="主导航">
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="archive.html">归档</a></li>
+            <li><a href="tags.html">标签</a></li>
+            <li><a href="about.html" aria-current="page">关于</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+          <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+          <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sticky-header" id="stickyHeader">
+    <div class="progress"><span class="progress__bar" id="progressBar"></span></div>
+    <div class="container sticky-header__inner">
+      <a class="sticky-header__brand" href="index.html">Song4u</a>
+      <nav class="mainnav mainnav--compact" aria-label="吸顶导航">
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="archive.html">归档</a></li>
+          <li><a href="tags.html">标签</a></li>
+          <li><a href="about.html" aria-current="page">关于</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+        <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+        <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE_HEADER:END -->
+
+  <main class="site-content" id="primary">
+    <div class="container">
+
+      <!-- ============ 首屏：改名字和一句话介绍 ============ -->
+      <section class="hero">
+        <img class="hero__avatar" src="assets/avatar.jpg" alt="Song4u" width="116" height="116">
+        <h1 class="hero__name">Song4u</h1>
+        <p class="hero__tagline">
+          计算机专业学生 · 喜欢算法、后端，以及把想法做成真正能跑起来的东西
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="index.html">去博客看看</a>
+          <a class="btn" href="mailto:song4uhachi@gmail.com">给我发邮件</a>
+          <a class="btn" href="https://github.com/Song4uhachi" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <!-- ============ 关于我 ============ -->
+      <section class="section" id="about">
+        <h2 class="section__title">关于我</h2>
+        <div class="prose-block">
+          <p>
+            我是一名计算机专业的学生，主要精力放在数据结构与算法、后端开发上。
+            平时喜欢刷题、做小工具，也喜欢把折腾的过程写成笔记。
+          </p>
+          <p>
+            这个网站是我的一块自留地，用来放学习笔记、正在学的东西，以及怎么联系到我。
+            如果你对其中任何一件事感兴趣，欢迎来聊。
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 联系：把邮箱和链接换成你自己的 ============ -->
+      <section class="section" id="contact">
+        <h2 class="section__title">联系</h2>
+        <div class="contact">
+          <a class="contact__item" href="mailto:2451377891@qq.com">
+            <span class="contact__label">QQ 邮箱</span>
+            <span class="contact__value">2451377891@qq.com</span>
+          </a>
+          <a class="contact__item" href="mailto:song4uhachi@gmail.com">
+            <span class="contact__label">Gmail</span>
+            <span class="contact__value">song4uhachi@gmail.com</span>
+          </a>
+          <a class="contact__item" href="https://github.com/Song4uhachi" target="_blank" rel="noopener">
+            <span class="contact__label">GitHub</span>
+            <span class="contact__value">github.com/Song4uhachi</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- SITE_FOOTER:START -->
+
+<footer class="site-footer" id="colophon">
+    <div class="container site-footer__inner">
+      <div class="site-info">
+        Copyright © <span class="js-year">2026</span>
+        <a href="index.html">Song4u</a>. 保留所有权利
+      </div>
+      <div class="footer-links">
+        <a href="rss.xml">RSS</a>
+        <a href="about.html">关于</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端菜单">
+    <div class="mobile-nav__head">
+      <span class="mobile-nav__title">导航</span>
+      <button class="icon-btn js-close" type="button" aria-label="关闭菜单">✕</button>
+    </div>
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="archive.html">归档</a></li>
+      <li><a href="tags.html">标签</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="overlay-backdrop" id="backdrop"></div>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="站内搜索">
+    <button class="search-close js-close" type="button" aria-label="关闭搜索">✕</button>
+    <div class="container">
+      <label class="screen-reader-text" for="searchInput">搜索文章</label>
+      <input class="search-field" id="searchInput" type="search" placeholder="搜索文章…" autocomplete="off">
+      <p class="search-hint">输入关键词即时筛选标题、摘要和标签，按 ESC 关闭。</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" type="button">返回顶部 ↑</button>
+
+  <script src="search-index.js"></script>
+  <script src="script.js"></script>
+
+  <!-- SITE_FOOTER:END -->
+
+</body>
+</html>

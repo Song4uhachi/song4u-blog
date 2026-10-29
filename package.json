@@ -1,0 +1,12 @@
+{
+  "name": "song4u-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "blog": "node tools/build-blog.mjs"
+  },
+  "devDependencies": {
+    "marked": "^18.1.0"
+  }
+}

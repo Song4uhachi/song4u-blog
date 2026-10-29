@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>这个网站是怎么搭起来的 · Song4u</title>
+  <meta name="description" content="从零到上线：GitHub 存代码、Cloudflare Pages 自动发布，全程没有买服务器。">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="alternate" type="application/rss+xml" title="Song4u 的博客" href="../rss.xml">
+  <link rel="canonical" href="/blog/how-i-built-this-site.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="这个网站是怎么搭起来的 · Song4u">
+  <meta property="og:description" content="从零到上线：GitHub 存代码、Cloudflare Pages 自动发布，全程没有买服务器。">
+  <meta property="og:url" content="/blog/how-i-built-this-site.html">
+  <meta name="twitter:card" content="summary">
+</head>
+<body data-root="../">
+  <header class="site-header" id="masthead">
+    <div class="header-branding">
+      <div class="container">
+        <p class="site-title"><a href="../index.html">Song4u</a></p>
+        <p class="site-description">学习笔记、项目记录，以及折腾各种工具的过程。</p>
+      </div>
+    </div>
+
+    <div class="header-nav">
+      <div class="container header-nav__inner">
+        <nav class="mainnav" aria-label="主导航">
+          <ul>
+            <li><a href="../index.html" aria-current="page">首页</a></li>
+            <li><a href="../archive.html">归档</a></li>
+            <li><a href="../tags.html">标签</a></li>
+            <li><a href="../about.html">关于</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+          <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+          <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sticky-header" id="stickyHeader">
+    <div class="progress"><span class="progress__bar" id="progressBar"></span></div>
+    <div class="container sticky-header__inner">
+      <a class="sticky-header__brand" href="../index.html">Song4u</a>
+      <nav class="mainnav mainnav--compact" aria-label="吸顶导航">
+        <ul>
+          <li><a href="../index.html" aria-current="page">首页</a></li>
+          <li><a href="../archive.html">归档</a></li>
+          <li><a href="../tags.html">标签</a></li>
+          <li><a href="../about.html">关于</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn js-theme" type="button" aria-label="切换深色模式">🌙</button>
+        <button class="icon-btn js-search" type="button" aria-label="搜索">🔍</button>
+        <button class="icon-btn icon-btn--menu js-menu" type="button" aria-label="打开菜单">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-content" id="primary">
+    <div class="container">
+      <article class="post">
+        <header class="post-header">
+          <p><a class="back-link" href="../index.html">← 返回首页</a></p>
+          <h1 class="entry-title">这个网站是怎么搭起来的</h1>
+          <div class="entry-meta">
+            <span class="posted-on"><time datetime="2026-10-07">2026年10月7日</time></span>
+            <span class="dot">·</span>
+            <span>约 2 分钟</span>
+          </div>
+                  <ul class="tags tags--sm entry-tags">
+          <li><a href="../tags/%E6%8A%98%E8%85%BE.html" style="color:inherit">折腾</a></li>
+          <li><a href="../tags/%E5%89%8D%E7%AB%AF.html" style="color:inherit">前端</a></li>
+        </ul>
+        </header>
+        <div class="prose">
+<p>把过程记下来，免得以后忘了，也给同样想做个人网站的人一个参考。</p>
+<h2>整体流程</h2>
+<p>本地写文件 → 推到 GitHub 仓库 → Cloudflare Pages 自动构建 → 得到网址 → 绑定自己的域名。</p>
+<p>只有第一次配置麻烦一点，之后更新网站只剩一条推送操作。</p>
+<h2>为什么不用服务器</h2>
+<p>静态站点不需要后端，所有的页面在发布时就生成好了，托管平台直接分发文件。
+好处很直接：</p>
+<ul>
+<li>不用交服务器租金，个人站点免费额度完全够用</li>
+<li>不用管系统更新、安全补丁、被扫端口这些事</li>
+<li>自带 HTTPS 证书，全球有加速节点</li>
+</ul>
+<p>等到需要用户登录、评论、数据库的时候，再考虑上服务器也不迟。</p>
+<h2>发布配置</h2>
+<p>Cloudflare Pages 上只需要填三个字段：</p>
+<table>
+<thead>
+<tr>
+<th>设置项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Framework preset</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Build command</td>
+<td>留空</td>
+</tr>
+<tr>
+<td>Build output directory</td>
+<td><code>/</code></td>
+</tr>
+</tbody></table>
+<p>因为这个站点是纯 HTML、CSS、JavaScript，没有构建步骤，平台把整个文件夹当成成品直接发出去。</p>
+<h2>写文章的方式</h2>
+<p>博客用 Markdown 写，放在 <code>posts/</code> 目录里，运行一条命令生成页面：</p>
+<pre><code class="language-bash">npm run blog
+</code></pre>
+<p>它会扫描 <code>posts/</code> 下所有 <code>.md</code> 文件，按日期从新到旧排好，生成文章列表和每篇文章的 HTML。
+生成出来的 <code>blog.html</code> 和 <code>blog/</code> 目录照样提交上去，所以线上依然不需要构建。</p>
+<p>代码块这类内容在 Markdown 里写起来很舒服：</p>
+<pre><code class="language-cpp">int main() {
+    // 不用担心 &lt; &gt; 符号需要转义
+    std::vector&lt;int&gt; v{1, 2, 3};
+    return 0;
+}
+</code></pre>
+<h2>踩过的坑</h2>
+<p>图片文件名的大小写在本地无所谓，但服务器是 Linux，区分大小写。
+<code>Photo.JPG</code> 和 <code>photo.jpg</code> 会被当成两个文件，页面上就是一个裂开的图标。</p>
+<blockquote>
+<p>统一用小写文件名，能省掉以后很多莫名其妙的排查。</p>
+</blockquote>
+<p>暂时就这些，有新问题再补。</p>
+        </div>
+      <nav class="postnav">
+        <span></span>
+        <a class="postnav__next" href="hello.html"><span>下一篇 →</span>开始写博客</a>
+      </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="colophon">
+    <div class="container site-footer__inner">
+      <div class="site-info">
+        Copyright © <span class="js-year">2026</span>
+        <a href="../index.html">Song4u</a>. 保留所有权利
+      </div>
+      <div class="footer-links">
+        <a href="../rss.xml">RSS</a>
+        <a href="../about.html">关于</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端菜单">
+    <div class="mobile-nav__head">
+      <span class="mobile-nav__title">导航</span>
+      <button class="icon-btn js-close" type="button" aria-label="关闭菜单">✕</button>
+    </div>
+    <ul>
+      <li><a href="../index.html">首页</a></li>
+      <li><a href="../archive.html">归档</a></li>
+      <li><a href="../tags.html">标签</a></li>
+      <li><a href="../about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="overlay-backdrop" id="backdrop"></div>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="站内搜索">
+    <button class="search-close js-close" type="button" aria-label="关闭搜索">✕</button>
+    <div class="container">
+      <label class="screen-reader-text" for="searchInput">搜索文章</label>
+      <input class="search-field" id="searchInput" type="search" placeholder="搜索文章…" autocomplete="off">
+      <p class="search-hint">输入关键词即时筛选标题、摘要和标签，按 ESC 关闭。</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" type="button">返回顶部 ↑</button>
+
+  <script src="../search-index.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

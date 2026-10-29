@@ -1,0 +1,16 @@
+# 依赖目录，不需要提交
+node_modules/
+
+# 系统垃圾文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地编辑器配置，可能包含 API 密钥等敏感信息
+.vscode/
+
+# 误建在网站目录里的空仓库，不重复上传
+song4u-blog/
+
+# 注意：blog/ 和 blog.html 是脚本生成的，但要提交上去，
+# 这样 Cloudflare Pages 不需要任何构建步骤就能直接发布。

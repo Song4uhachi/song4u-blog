@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Song4u 的博客</title>
+    <link>/index.html</link>
+    <description>学习笔记、项目记录，以及折腾各种工具的过程。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>开始写博客</title>
+      <link>/blog/hello.html</link>
+      <guid isPermaLink="true">/blog/hello.html</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>给这个网站加了一个博客栏目，记录一下为什么想写，以及打算写什么。</description>
+      <content:encoded><![CDATA[<p>一直想有个地方放自己的东西。发在朋友圈太碎，写在本地文件夹里又没人看得到，
+所以干脆挂到自己的网站上。</p>
+<h2>打算写什么</h2>
+<ul>
+<li>学习笔记：算法、数据结构、语言特性，写完能讲清楚才算真懂</li>
+<li>项目记录：做过的东西、踩过的坑、当时的取舍</li>
+<li>一些折腾：装环境、配工具、把电脑搞崩又修好</li>
+</ul>
+<h2>为什么不用现成的平台</h2>
+<p>现成的博客平台当然更省事，但域名和内容都不在自己手里。
+现在这套方案，文章就是本地的一个 Markdown 文件，随时能搬到别处去。</p>
+<blockquote>
+<p>写下来的过程，本身就是一次复习。</p>
+</blockquote>
+<p>这一篇就当作占位，接下来会慢慢往里填。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>这个网站是怎么搭起来的</title>
+      <link>/blog/how-i-built-this-site.html</link>
+      <guid isPermaLink="true">/blog/how-i-built-this-site.html</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>从零到上线：GitHub 存代码、Cloudflare Pages 自动发布，全程没有买服务器。</description>
+      <content:encoded><![CDATA[<p>把过程记下来，免得以后忘了，也给同样想做个人网站的人一个参考。</p>
+<h2>整体流程</h2>
+<p>本地写文件 → 推到 GitHub 仓库 → Cloudflare Pages 自动构建 → 得到网址 → 绑定自己的域名。</p>
+<p>只有第一次配置麻烦一点，之后更新网站只剩一条推送操作。</p>
+<h2>为什么不用服务器</h2>
+<p>静态站点不需要后端，所有的页面在发布时就生成好了，托管平台直接分发文件。
+好处很直接：</p>
+<ul>
+<li>不用交服务器租金，个人站点免费额度完全够用</li>
+<li>不用管系统更新、安全补丁、被扫端口这些事</li>
+<li>自带 HTTPS 证书，全球有加速节点</li>
+</ul>
+<p>等到需要用户登录、评论、数据库的时候，再考虑上服务器也不迟。</p>
+<h2>发布配置</h2>
+<p>Cloudflare Pages 上只需要填三个字段：</p>
+<table>
+<thead>
+<tr>
+<th>设置项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Framework preset</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Build command</td>
+<td>留空</td>
+</tr>
+<tr>
+<td>Build output directory</td>
+<td><code>/</code></td>
+</tr>
+</tbody></table>
+<p>因为这个站点是纯 HTML、CSS、JavaScript，没有构建步骤，平台把整个文件夹当成成品直接发出去。</p>
+<h2>写文章的方式</h2>
+<p>博客用 Markdown 写，放在 <code>posts/</code> 目录里，运行一条命令生成页面：</p>
+<pre><code class="language-bash">npm run blog
+</code></pre>
+<p>它会扫描 <code>posts/</code> 下所有 <code>.md</code> 文件，按日期从新到旧排好，生成文章列表和每篇文章的 HTML。
+生成出来的 <code>blog.html</code> 和 <code>blog/</code> 目录照样提交上去，所以线上依然不需要构建。</p>
+<p>代码块这类内容在 Markdown 里写起来很舒服：</p>
+<pre><code class="language-cpp">int main() {
+    // 不用担心 &lt; &gt; 符号需要转义
+    std::vector&lt;int&gt; v{1, 2, 3};
+    return 0;
+}
+</code></pre>
+<h2>踩过的坑</h2>
+<p>图片文件名的大小写在本地无所谓，但服务器是 Linux，区分大小写。
+<code>Photo.JPG</code> 和 <code>photo.jpg</code> 会被当成两个文件，页面上就是一个裂开的图标。</p>
+<blockquote>
+<p>统一用小写文件名，能省掉以后很多莫名其妙的排查。</p>
+</blockquote>
+<p>暂时就这些，有新问题再补。</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
