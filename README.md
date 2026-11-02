@@ -1,4 +1,6 @@
-# 个人博客 · 使用说明
+# 个人博客
+
+[🌐 访问我的博客主页](https://song4uhachi.github.io/song4u-blog/)
 
 纯静态站点，没有构建步骤。页面由脚本从 Markdown 生成，发布时 Cloudflare Pages
 不需要做任何构建，直接把整个文件夹当成成品发出去。
