@@ -54,6 +54,43 @@ public:
 ]]></content:encoded>
     </item>
     <item>
+      <title>最长连续序列</title>
+      <link>/blog/article-202611020827.html</link>
+      <guid isPermaLink="true">/blog/article-202611020827.html</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <description>最长连续序列</description>
+      <content:encoded><![CDATA[<p><a href="https://leetcode.cn/problems/longest-consecutive-sequence/">https://leetcode.cn/problems/longest-consecutive-sequence/</a><br>
+给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。<br>
+也是很简单的一道题目，只需要排完序且去重找到最长序列即可<br>
+可以使用两个stl库函数unique和erase来实现上述操作<br></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int longestConsecutive(vector&lt;int&gt;&amp; nums) {
+        if (nums.empty()) return 0; 
+        
+        sort(nums.begin(), nums.end());
+        nums.erase(unique(nums.begin(), nums.end()), nums.end());
+
+        int ans = 1;
+        int res = 1;
+        int pre = nums[0];
+
+        for (int i = 1; i &lt; nums.size(); i++) {
+            if (pre == nums[i] - 1) {
+                res++;
+                ans = max(ans, res);
+            } else {
+                res = 1;
+            }
+            pre = nums[i]; 
+        }
+        return ans;
+    }
+};
+</code></pre>
+]]></content:encoded>
+    </item>
+    <item>
       <title>两数之和</title>
       <link>/blog/two-sum.html</link>
       <guid isPermaLink="true">/blog/two-sum.html</guid>

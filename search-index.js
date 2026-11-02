@@ -11,6 +11,16 @@ window.SEARCH_INDEX = [
     "summary": "字母异位词分组"
   },
   {
+    "title": "最长连续序列",
+    "url": "blog/article-202611020827.html",
+    "date": "2026-11-02",
+    "tags": [
+      "算法",
+      "Hot100"
+    ],
+    "summary": "最长连续序列"
+  },
+  {
     "title": "两数之和",
     "url": "blog/two-sum.html",
     "date": "2026-10-29",
