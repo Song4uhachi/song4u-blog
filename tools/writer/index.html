@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Song4u 写作台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="writer-app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S4</div>
+        <div>
+          <h1>写作台</h1>
+          <p>Song4u Blog</p>
+        </div>
+      </div>
+
+      <div class="sidebar-actions">
+        <button class="button button--light button--wide" id="newPostButton" type="button">
+          <span aria-hidden="true">＋</span>
+          新建文章
+        </button>
+        <button class="button button--ghost button--wide" id="importButton" type="button">
+          <span aria-hidden="true">↥</span>
+          导入 Obsidian 笔记
+        </button>
+        <input id="noteFileInput" type="file" accept=".md,.markdown,text/markdown,text/plain" hidden>
+      </div>
+
+      <div class="post-list-heading">
+        <span>全部文章</span>
+        <span class="count-badge" id="postCount">0</span>
+      </div>
+      <nav class="post-list" id="postList" aria-label="文章列表"></nav>
+
+      <div class="sidebar-footer">
+        <div class="repo-state">
+          <span class="state-dot" id="repoDot"></span>
+          <span id="repoStateText">正在检查仓库…</span>
+        </div>
+        <a id="siteLink" href="http://127.0.0.1:4317/" target="_blank" rel="noreferrer">打开本地博客 ↗</a>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="save-state">
+          <span class="save-indicator" id="saveIndicator"></span>
+          <span id="saveStateText">新文章</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="button button--quiet" id="viewButton" type="button">预览文章</button>
+          <button class="button button--secondary" id="buildButton" type="button">保存并生成</button>
+          <button class="button button--primary" id="publishButton" type="button">发布到 GitHub</button>
+        </div>
+      </header>
+
+      <section class="editor-shell">
+        <div class="metadata">
+          <label class="field field--title">
+            <span>标题</span>
+            <input id="titleInput" type="text" placeholder="给这篇文章起个名字" autocomplete="off">
+          </label>
+
+          <label class="field">
+            <span>日期</span>
+            <input id="dateInput" type="date">
+          </label>
+
+          <label class="field">
+            <span>网址短名</span>
+            <input id="slugInput" type="text" placeholder="例如 two-sum" autocomplete="off">
+          </label>
+
+          <label class="field field--tags">
+            <span>标签</span>
+            <input id="tagsInput" type="text" placeholder="算法, Hot100" autocomplete="off">
+          </label>
+
+          <label class="field field--summary">
+            <span>摘要</span>
+            <input id="summaryInput" type="text" placeholder="显示在文章列表里的一句话简介" autocomplete="off">
+          </label>
+
+          <label class="draft-toggle">
+            <input id="draftInput" type="checkbox">
+            <span>保存为草稿</span>
+          </label>
+        </div>
+
+        <div class="editor-grid">
+          <section class="editor-pane">
+            <div class="pane-header">
+              <div class="format-actions" role="toolbar" aria-label="Markdown 格式">
+                <button type="button" data-format="heading" title="二级标题">H₂</button>
+                <button type="button" data-format="bold" title="加粗"><strong>B</strong></button>
+                <button type="button" data-format="italic" title="斜体"><em>I</em></button>
+                <button type="button" data-format="quote" title="引用">“</button>
+                <button type="button" data-format="list" title="列表">≡</button>
+                <button type="button" data-format="code" title="代码块">&lt;/&gt;</button>
+                <button type="button" data-format="link" title="链接">↗</button>
+                <button type="button" data-format="image" title="插入图片">⌁</button>
+              </div>
+              <span class="writing-count" id="writingCount">0 字</span>
+            </div>
+
+            <textarea
+              id="contentInput"
+              class="markdown-editor"
+              spellcheck="false"
+              placeholder="从这里开始写正文，支持 Markdown…&#10;&#10;## 小标题&#10;&#10;把截图直接粘贴到这里，也可以插入本地图片。"
+            ></textarea>
+            <input id="imageFileInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
+          </section>
+
+          <section class="preview-pane">
+            <div class="pane-header">
+              <span>实时预览</span>
+              <span class="preview-hint">与网站文章样式一致</span>
+            </div>
+            <iframe
+              id="previewFrame"
+              title="文章预览"
+              sandbox=""
+            ></iframe>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

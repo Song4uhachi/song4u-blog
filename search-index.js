@@ -1,6 +1,16 @@
 /* 由 npm run blog 自动生成，不要手改 */
 window.SEARCH_INDEX = [
   {
+    "title": "字母异位词分组",
+    "url": "blog/article-202611020817.html",
+    "date": "2026-11-02",
+    "tags": [
+      "算法",
+      "Hot100"
+    ],
+    "summary": "字母异位词分组"
+  },
+  {
     "title": "两数之和",
     "url": "blog/two-sum.html",
     "date": "2026-10-29",

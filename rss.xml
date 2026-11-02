@@ -5,7 +5,54 @@
     <link>/index.html</link>
     <description>学习笔记、项目记录，以及折腾各种工具的过程。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>字母异位词分组</title>
+      <link>/blog/article-202611020817.html</link>
+      <guid isPermaLink="true">/blog/article-202611020817.html</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <description>字母异位词分组</description>
+      <content:encoded><![CDATA[<p>字母异位词分组，原题链接：<a href="https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&amp;envId=top-100-liked">https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&amp;envId=top-100-liked</a></p>
+<p>还是很简单的一道题，显然相同类型的词必定满足包含的各个字母对应的数量是一样的，那么根据字典序的排序应该也是一样的，所以直接sort完分类即可。</p>
+<p>代码如下：</p>
+<pre><code class="language-c++">class Solution {
+
+public:
+
+    vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) {
+
+        vector&lt;vector&lt;string&gt;&gt; res;
+
+        unordered_map&lt;string, int&gt; hash;
+
+        for (int i = 0; i &lt; strs.size(); i ++ ) {
+
+            string s = strs[i];
+
+            sort(s.begin(), s.end());
+
+  
+
+            if (!hash.count(s)) {
+
+                hash[s] = res.size();
+
+                res.push_back({});
+
+            }
+
+            res[hash[s]].push_back(strs[i]);
+
+        }
+
+        return res;
+
+    }
+
+};
+</code></pre>
+]]></content:encoded>
+    </item>
     <item>
       <title>两数之和</title>
       <link>/blog/two-sum.html</link>

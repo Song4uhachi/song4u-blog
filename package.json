@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "blog": "node tools/build-blog.mjs"
+    "blog": "node tools/build-blog.mjs",
+    "write": "node tools/writer-server.mjs"
   },
   "devDependencies": {
     "marked": "^18.1.0"
